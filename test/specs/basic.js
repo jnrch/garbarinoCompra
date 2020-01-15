@@ -64,7 +64,7 @@ describe('garbarino.com page', () => {
              browser.pause(3500)
      })
 
-//////prueba
+   //Seleccionamos como opcion de obtener el producto como 'retiro'
      it('Seleccionar opcion de retiro', () => {
      
        const selectRetiro = $('.gb-checkout-delivery-popup-success')
@@ -72,7 +72,7 @@ describe('garbarino.com page', () => {
 
      })
 
-    //Seleccionamos el barrio o localidad Villa del Parque, Buenos Aires, Ciudad de Buenos Aires
+    //Seleccionamos la sucursal donde se va retirar
      it('Seleccionamos retiro en sucursal', () => {
      
        const selectTramo = $('.sucursal-ul-list')
