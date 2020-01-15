@@ -178,27 +178,9 @@ describe('garbarino.com page', () => {
         var pasarButton2 = $('#continue')
             pasarButton2.click()
 
-            browser.pause(5000)
+            browser.pause(20000)
 
      })
-
-        //Llenar los inputs de los datos de la tarjeta 
-   /* it('Datos de la tarjeta', () => {
-     
-        const   mesVencimiento = $('#card_expiration_month')
-              , anioVencimiento = $('#card_expiration_year')
-              , codigoSeguridad = $('#security_code')
-
-              //numeroTarjeta.setValue('1234567890123456')
-              mesVencimiento.setValue('07')
-              anioVencimiento.setValue('20')
-              codigoSeguridad.setValue('123')
-
-
-   //mantener pausado el navegar para visualizar los resultados
-         browser.pause(20000)
-
-     })*/
 
 })
 
