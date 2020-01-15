@@ -6,19 +6,22 @@ describe('garbarino.com page', () => {
         const title = browser.getTitle()
         assert.strictEqual(title, 'Garbarino - Tecnología, Electrodomésticos y Artículos para el hogar')
     }) 
-      it('Debe buscar “Heladeras con Freezer”', () => {
+      it('Debe buscar “Heladeras”', () => {
       browser.url('https://garbarino.com');
       //esta anda
       const searchInput = $('#autocomplete-input')
      
 
-      searchInput.setValue('TV LED y Smart TV')  
-      //var myButton = $('.gb-search-dropdown');
-      //myButton.click()
+      searchInput.setValue('Heladeras')  
+      var myButton = $('.gb-search-dropdown');
+      myButton.click()
+      
       const searchDropdown = $('.gb-search-dropdown-list-category')
             searchDropdown.click();
+      browser.pause(1500)
 
     })
+
 
     //seleccionar el primer item de la busqueda
      it('Seleccionar el primer articulo de la busqueda', () => {
@@ -57,6 +60,16 @@ describe('garbarino.com page', () => {
        const searchBarriod = $('.gb-suggestion')
              searchBarriod.click();
 
+
+             browser.pause(3500)
+     })
+
+//////prueba
+     it('Seleccionar opcion de retiro', () => {
+     
+       const selectRetiro = $('.gb-checkout-delivery-popup-success')
+             selectRetiro.click()
+
      })
 
     //Seleccionamos el barrio o localidad Villa del Parque, Buenos Aires, Ciudad de Buenos Aires
@@ -64,6 +77,8 @@ describe('garbarino.com page', () => {
      
        const selectTramo = $('.sucursal-ul-list')
              selectTramo.click()
+
+             browser.pause(3500)  
 
      })
    //Presionamos el boton continuar un a vez confirmada la dirección de retiro
@@ -99,8 +114,10 @@ describe('garbarino.com page', () => {
             pasarButton.click()
 
             browser.pause(5000)
+            //alert('estamos en la seccion de datos del cliente')
 
      })
+
 
    //Llenar los inputs con los datos del cliente
      it('Datos del titular del medio de pago', () => {
@@ -111,7 +128,7 @@ describe('garbarino.com page', () => {
               , diaNacimiento = $('#day_select')
               , mesNacimiento = $('#month_select')
               , anioNacimiento = $('#year_select')
-              //, selectGenero = $('#masculino')
+              , selectGenero = $('.item-genero')
               , codigoArea = $('#codphone')
               , numeroTelefono = $('#phone')
               , email = $('#email')
@@ -120,6 +137,7 @@ describe('garbarino.com page', () => {
               , piso = $('#floor')
               , apartamento = $('#room')
               , codigoPostal = $('#zip_code')
+              , aceptoTerminos = $('.acepto-terminos')
 
               firstName.setValue('Jonathan')
               lastName.setValue('Rojas')
@@ -131,20 +149,57 @@ describe('garbarino.com page', () => {
               numeroTelefono.setValue('69068083')
               email.setValue('jonathanrojas31@gmail.com')
               calle.setValue('Cuenca')
+              altura.setValue('3446')
               piso.setValue('2')
               apartamento.setValue('D')
               codigoPostal.setValue('1417')
+              selectGenero.click()
+              aceptoTerminos.click()
 
 
-              //selectGenero.isSelected();
+   //mantener pausado el navegar para visualizar los resultados
+         browser.pause(5000)
 
-              //diaNacimiento.setValue('31')
+     })
+
+         //Seleccionamos el form metodos de pago
+     it('Seleccionamos el form datos del cliente', () => {
+     
+        var pasarToto = $('#facturacion')
+            pasarToto.click()
+
+
+            browser.pause(5000)
+
+     })
+
+     it('Presionamos el boton continuar', () => {
+     
+        var pasarButton2 = $('#continue')
+            pasarButton2.click()
+
+            browser.pause(5000)
+
+     })
+
+        //Llenar los inputs de los datos de la tarjeta 
+   /* it('Datos de la tarjeta', () => {
+     
+        const   mesVencimiento = $('#card_expiration_month')
+              , anioVencimiento = $('#card_expiration_year')
+              , codigoSeguridad = $('#security_code')
+
+              //numeroTarjeta.setValue('1234567890123456')
+              mesVencimiento.setValue('07')
+              anioVencimiento.setValue('20')
+              codigoSeguridad.setValue('123')
 
 
    //mantener pausado el navegar para visualizar los resultados
          browser.pause(20000)
 
-     })
+     })*/
+
 })
 
 
